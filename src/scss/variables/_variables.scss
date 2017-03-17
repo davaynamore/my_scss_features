@@ -1,0 +1,82 @@
+$xs-min: 320;
+$xs-max: 767;              // phone
+$sm-min: $xs-max + 1 ;
+$sm-max: 991;              // tablet
+$md-min: $sm-max + 1;
+$md-max: 1199;             // desktop
+$lg-min: $md-max + 1;      // desktop-large
+$fourK: 2560;              // 4K displays
+
+// ============ $variable-size ============
+
+$hide-screen:    /* to 319 */           "only screen and (max-width : #{$xs-min - 1}px)";
+$xs-screen-min:  /* from 320 */         "only screen and (min-width : #{$xs-min}px)";
+$xs-screen-max:  /* to 767 */           "only screen and (max-width : #{$xs-max}px)";
+$xs_screen:      /* 320 - 767 */        "only screen and (min-width : #{$xs-min}px) and (max-width : #{$xs-max}px)";
+$sm-screen-min:  /* from 768 */         "only screen and (min-width : #{$sm-min}px)";
+$sm-screen-max:  /* to 991 */           "only screen and (max-width : #{$sm-max}px)";
+$sm_screen:      /* 768 - 991 */        "only screen and (min-width : #{$sm-min}px) and (max-width : #{$sm-max}px)";
+$md_screen-min:  /* from 992 */         "only screen and (min-width : #{$md-min}px)";
+$md_screen-max:  /* to 1199 */          "only screen and (max-width : #{$md-max}px)";
+$md_screen:      /* 992 - 1199 */       "only screen and (min-width : #{$md-min}px) and (max-width : #{$md-max}px)";
+$lg_screen:      /* from 1200 */        "only screen and (min-width : #{$lg-min}px)";
+$fourK-_screen:  /* from 2560 */        "only screen and (min-width : #{$fourK}px)";
+
+// ============END $variable-size ============
+
+// ============ $orientation ============
+
+$landscape:                             " and (orientation : landscape)";
+$portrait:                              " and (orientation : portrait)";
+
+// ============END $orientation ============
+
+// ============ Devices variables ============
+
+// iPad Media Queries (All generations - including iPad mini)
+$iPad_in_portrait_landscape:            "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px)";
+$iPad_in_landscape:                     "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (orientation : landscape)";
+$iPad_in_portrait:                      "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (orientation : portrait)";
+
+// iPad 3 & 4 Media Queries
+$Retina_iPad_in_portrait_landscape:     "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (-webkit-min-device-pixel-ratio: 2)";
+$Retina_iPad_in_landscape:              "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2)";
+$Retina_iPad_in_portrait:               "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2)";
+
+// iPad 1 & 2 & mini Media Queries
+$iPad_1_2_in_portrait_landscape:        "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (-webkit-min-device-pixel-ratio: 1)";
+$iPad_1_2_in_landscape:                 "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1)";
+$iPad_1_2_in_portrait:                  "only screen and (min-width : #{$sm-min}px) and (max-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1)";
+
+// iPhone Media Queries
+$iPhone6_in_portrait_landscape:         "only screen and (min-width : 375px) and (max-width : 667px)";
+$iPhone6_in_landscape:                  "only screen and (min-width : 375px) and (max-width : 667px) and (orientation : landscape)";
+$iPhone6_in_portrait:                   "only screen and (min-width : 375px) and (max-width : 667px) and (orientation : portrait)";
+
+// iPhone 6 Plus Media Queries
+$iPhone6_Plus_in_portrait_landscape:    "only screen and (min-width : 414px) and (max-width : 736px)";
+$iPhone6_Plus_in_landscape:             "only screen and (min-width : 414px) and (max-width : 736px) and (orientation : landscape)";
+$iPhone6_Plus_in_portrait:              "only screen and (min-width : 414px) and (max-width : 736px) and (orientation : portrait)";
+
+// iPhone 5 & 5S Media Queries
+$iPhone5_5S_in_portrait_landscape:      "only screen and (min-width : #{$xs-min}px) and (max-width : 568px)";
+$iPhone5_5S_in_landscape:               "only screen and (min-width : #{$xs-min}px) and (max-width : 568px) and (orientation : landscape)";
+$iPhone5_5S_in_portrait:                "only screen and (min-width : #{$xs-min}px) and (max-width : 568px) and (orientation : portrait)";
+
+// iPhone 2G, 3G, 4, 4S Media Queries
+$iPhone_2G-4S_in_portrait_landscape:    "only screen and (min-width : #{$xs-min}px) and (max-width : 480px)";
+$iPhone_2G-4S_in_landscape:             "only screen and (min-width : #{$xs-min}px) and (max-width : 480px) and (orientation : landscape)";
+$iPhone_2G-4S_in_portrait:              "only screen and (min-width : #{$xs-min}px) and (max-width : 480px) and (orientation : portrait)";
+
+
+$mobile: $xs-screen-max;
+$tablet: $sm-screen-max;
+$desktop: $md_screen-max;
+$large_desktop: $lg_screen;
+$fourK:  $fourK-_screen;
+
+$only_mobile: $xs_screen;
+$only_tablet: $sm-screen;
+$only_desktop: $md_screen;
+
+// ============ END Devices variables ============

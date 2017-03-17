@@ -1,0 +1,43 @@
+// Variables to use
+// $mobile                /* to 767 */
+// $tablet                /* to 991 */
+// $desktop               /* to 1199 */
+// $large_desktop         /* from 1200 */
+// $fourK                 /* from 2560 */
+
+// $only_mobile           /* 320 - 767 */
+// $only_tablet           /* 768 - 991 */
+// $only_desktop          /* 992 - 1199 */
+
+@mixin media-hide {
+	@media #{$hide-screen} { display: none; }
+}
+
+@mixin for-device($device, $orientation: "") {
+  $device: $device + orient($orientation);
+  @media #{$device} { @content; }
+}
+
+// custom sizes
+
+@mixin for-max-width($width, $orientation: "") {
+  $width: unitplus($width);
+  $orientation: orient($orientation);
+  $query: "only screen and (max-width: #{$width}) #{$orientation}";
+  @media #{$query} { @content; }
+}
+
+@mixin for-min-width($width, $orientation: "") {
+  $width: unitplus($width);
+  $orientation: orient($orientation);
+  $query: "only screen and (min-width: #{$width}) #{$orientation}";
+  @media #{$query} { @content; }
+}
+
+@mixin for-min-max-width($min-width, $max-width, $orientation: "") {
+  $min-width: unitplus($min-width);
+  $max-width: unitplus($max-width);
+  $orientation: orient($orientation);
+  $query: "only screen and (min-width : #{$min-width}) and (max-width : #{$max-width}) #{$orientation}";
+  @media #{$query}  { @content; }
+}

@@ -1,0 +1,24 @@
+@function orient($orientation) {
+  @if($orientation){
+    @if(str-index($orientation, 'landscape')){
+      $orientation: $landscape;
+    } @else if(str-index($orientation, 'portrait')){
+      $orientation: $portrait;
+    }
+  }
+  @return $orientation;
+}
+
+@function unitplus($value){
+  @if unitless($value) {
+    $value: $value + 'px';
+  }
+  @return $value;
+}
+
+@function strip-units($value) {
+  @if not unitless($value) {
+    $value: $value / ($value * 0 + 1);
+  }
+  @return $value;
+}

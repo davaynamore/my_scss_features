@@ -1,0 +1,19 @@
+{
+  "name": "scss_media_queries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "davaynamorenko",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-notify": "^2.2.0",
+    "browser-sync": "2.12.5",
+    "gulp-sass": "^2.2.0"
+  }
+}

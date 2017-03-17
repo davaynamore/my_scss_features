@@ -1,0 +1,100 @@
+// colors
+$colors: (
+phone-color: #06FFE7,
+tablet-color: #3A0CE8,
+desktop-color: #FF0000,
+large_desktop-color: #E8A00C,
+fourK: #72FF0D
+);
+
+// contents
+$phone-content-portrait: 'phone-portrait';
+$phone-content-landscape: 'phone-landscape';
+$tablet-content-portrait: 'tablet-portrait';
+$tablet-content-landscape: 'tablet-landscape';
+$desktop-content: 'desktop';
+$large_desktop-content: 'large desktop';
+$fourK-content: '4K TV';
+
+
+$min-width: 320;
+$max-width: 2560;
+$min-font: 20;
+$max-font: 80;
+
+@mixin device-view($device-color, $device-content) {
+	$color: color($device-color);
+	--color: $color;
+
+	&:before{
+		--color: invert(darken($color, 25%));
+		--content: $device-content;
+	}
+}
+
+*{
+	font-size: 100%;
+	@include media-hide;
+	--content: initial;
+	--color: initial;
+
+
+	@include fz_flex(1200, 20, 80);
+
+}
+
+.test {
+	background: var(--color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: inherit;
+
+	&:before{
+		content: var(--content);
+		color: var(--color);
+		font-weight: bold;
+		text-transform: capitalize;
+		padding: 1em 0;
+	}
+
+	@include for-min-width(2560px){
+		@include device-view(fourK, $fourK-content);
+	}
+
+	@include for-max-width(2559px){
+		@include device-view(large_desktop-color, $large_desktop-content);
+	}
+
+	@include for-max-width(1199){
+		@include device-view(desktop-color, $desktop-content);
+	}
+
+	@include for-min-max-width(768px, 991, $portrait) {
+		@include device-view(tablet-color, $tablet-content-portrait);
+	}
+
+	@include for-min-max-width(768px, 991, landscape) {
+		@include device-view(tablet-color, $tablet-content-landscape);
+	}
+
+	@include for-min-max-width(768px, 991) {
+		@include device-view(tablet-color, $tablet-content-portrait);
+	}
+
+	@include for-device($mobile) {
+		@include device-view(phone-color, $phone-content-portrait);
+	}
+
+	@include for-device($mobile, $landscape) {
+		@include device-view(phone-color, $phone-content-landscape);
+	}
+
+	@include for-device($mobile, landscape) {
+		@include device-view(phone-color, $phone-content-landscape);
+	}
+
+	@include for-device($mobile, portrait) {
+		@include device-view(phone-color, $phone-content-portrait);
+	}
+}

@@ -1,0 +1,31 @@
+// Responsive typography
+
+// Позволяет задать размер шрифта(font-size) на все медиа-запросы:
+// font-size изменяет свое значение плавно от минимально до максимально указанного размера(передается параметрами в миксин)
+// от минимальной ширины (320px - константа, при желании можно изменить:) ) до указанной пользователем (передается параметром в миксин)
+// ВАЖНО: ВСЕ РАЗМЕРЫ МИКСИН ПРИНИМАЕТ В ПИКСЕЛЯХ!
+
+// USAGE:
+// @include fz_flex(991px, 12px, 50px); - размер шрифта в диапазоне 320 - 991px изменяется от 12 до 50px; свыше 991px фиксированно 50px;
+// @include fz_flex(991, 12, 50); - возможно использовать без единиц измерения
+
+@mixin fz_flex($max_width_vp, $min_font_size, $max_font_size) {
+
+  $max_width_vp: strip-units($max_width_vp);
+  $min_font_size: strip-units($min_font_size);
+  $max_font_size: strip-units($max_font_size);
+
+  $min_width_vp: 320;
+
+  @include for-min-max-width($min_width_vp, $max_width_vp - 1) {
+    & {
+      font-size: calc( #{$min_font_size}px + (#{$max_font_size} - #{$min_font_size}) * ( (100vw - #{$min_width_vp}px) / ( #{$max_width_vp} - #{$min_width_vp})));
+    }
+  }
+
+  @include for-min-width($max_width_vp) {
+    & {
+      font-size: calc(#{$max_font_size}px);
+    }
+  }
+}
